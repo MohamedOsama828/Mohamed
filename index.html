@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="login.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- رابط ملف CSS الخارجي -->
+  <link rel="stylesheet" href="login.css" />
+
+  <!-- Font Awesome لإظهار أيقونة العين -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <title>MohamedOsama</title>
+
   <style>
     body {
       margin: 0;
@@ -16,6 +23,7 @@
       background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
       font-family: Arial, sans-serif;
     }
+
     .glass-container {
       position: relative;
       width: 380px;
@@ -29,29 +37,100 @@
       overflow: hidden;
       color: #fff;
     }
-    .glass-container h2 { text-align: center; margin-bottom: 20px; }
-    .input-group { position: relative; margin: 20px 0; width: 100%; }
+
+    .glass-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      position: relative;
+      margin: 20px 0;
+      width: 100%;
+    }
+
     .input-group input {
-      width: 100%; padding: 10px; border: none; outline: none;
-      border-radius: 10px; background: rgba(255, 255, 255, 0.2);
-      color: #fff; font-size: 16px;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      outline: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 16px;
     }
-    .input-group label { position: absolute; left: 10px; top: -20px; font-size: 14px; color: #ddd; }
-    .remember-forgot { display: flex; justify-content: space-between; align-items: center; font-size: 14px; margin: 10px 0 20px; }
-    .remember-forgot label { display: flex; align-items: center; }
-    .remember-forgot input { margin-right: 5px; }
-    .remember-forgot a { color: #00eaff; text-decoration: none; cursor: pointer; }
-    .remember-forgot a:hover { text-decoration: underline; }
+
+    .input-group label {
+      position: absolute;
+      left: 10px;
+      top: -20px;
+      font-size: 14px;
+      color: #ddd;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 18px;
+      color: #000;
+    }
+
+    .remember-forgot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      margin: 10px 0 20px;
+    }
+
+    .remember-forgot a {
+      color: #00eaff;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .remember-forgot a:hover {
+      text-decoration: underline;
+    }
+
     .btn {
-      width: 100%; padding: 10px; border: none; border-radius: 10px;
-      background: #00eaff; color: #000; font-size: 16px;
-      cursor: pointer; transition: 0.3s;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      background: #00eaff;
+      color: #000;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
     }
-    .btn:hover { background: #00bcd4; }
-    .register { text-align: center; margin-top: 20px; font-size: 14px; }
-    .register a { color: #00eaff; text-decoration: none; }
-    .register a:hover { text-decoration: underline; }
-    #resetBox { display: none; margin-top: 20px; }
+
+    .btn:hover {
+      background: #00bcd4;
+    }
+
+    .register {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .register a {
+      color: #00eaff;
+      text-decoration: none;
+    }
+
+    .register a:hover {
+      text-decoration: underline;
+    }
+
+    #resetBox {
+      display: none;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
@@ -60,17 +139,22 @@
     <h2>Login</h2>
     <form id="loginForm">
       <div class="input-group">
-        <input type="text" id="username" required>
+        <input type="text" id="username" required />
         <label>Username</label>
       </div>
+
       <div class="input-group">
-        <input type="password" id="password" required>
+        <input type="password" id="password" required />
         <label>Password</label>
+        <span class="toggle-password" onclick="togglePassword()">
+          <i id="eyeIcon" class="fa-solid fa-eye"></i>
+        </span>
       </div>
+
       <div class="remember-forgot">
-        
         <a onclick="showReset()">Forgot Password?</a>
       </div>
+
       <button type="submit" class="btn">Login</button>
 
       <div class="register">
@@ -82,19 +166,39 @@
     <div id="resetBox">
       <h3>Reset Password</h3>
       <div class="input-group">
-        <input type="text" id="resetUser" required>
+        <input type="text" id="resetUser" required />
         <label>Username</label>
       </div>
       <div class="input-group">
-        <input type="email" id="resetEmail" required>
+        <input type="email" id="resetEmail" required />
         <label>Email</label>
       </div>
       <button class="btn" onclick="resetPassword()">Send Password</button>
     </div>
   </div>
 
-  <!-- ✅ EmailJS v4 -->
+  <!-- ✅ EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- ✅ ملف الجافاسكريبت الخارجي -->
   <script src="chek.js"></script>
+
+  <!-- ✅ دالة إظهار/إخفاء كلمة المرور -->
+  <script>
+    function togglePassword() {
+      const passwordInput = document.getElementById("password");
+      const eyeIcon = document.getElementById("eyeIcon");
+
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        eyeIcon.classList.remove("fa-eye");
+        eyeIcon.classList.add("fa-eye-slash");
+      } else {
+        passwordInput.type = "password";
+        eyeIcon.classList.remove("fa-eye-slash");
+        eyeIcon.classList.add("fa-eye");
+      }
+    }
+  </script>
 </body>
 </html>

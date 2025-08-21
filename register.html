@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="login.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- ملف CSS الخارجي -->
+  <link rel="stylesheet" href="login.css" />
+
+  <!-- Font Awesome لأيقونة العين -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
   <title>Sign Up MohamedOsama</title>
+
   <style>
     body {
       margin: 0;
@@ -16,6 +23,7 @@
       background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
       font-family: Arial, sans-serif;
     }
+
     .glass-container {
       position: relative;
       width: 380px;
@@ -27,20 +35,62 @@
       box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
       color: #fff;
     }
-    .glass-container h2 { text-align: center; margin-bottom: 20px; }
-    .input-group { position: relative; margin: 20px 0; width: 100%; }
+
+    .glass-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      position: relative;
+      margin: 20px 0;
+      width: 100%;
+    }
+
     .input-group input {
-      width: 100%; padding: 10px; border: none; outline: none;
-      border-radius: 10px; background: rgba(255, 255, 255, 0.2);
-      color: #fff; font-size: 16px;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      outline: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 16px;
     }
-    .input-group label { position: absolute; left: 10px; top: -20px; font-size: 14px; color: #ddd; }
+
+    .input-group label {
+      position: absolute;
+      left: 10px;
+      top: -20px;
+      font-size: 14px;
+      color: #ddd;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 18px;
+      color: #000; /* اللون الأسود */
+    }
+
     .btn {
-      width: 100%; padding: 10px; border: none; border-radius: 10px;
-      background: #00eaff; color: #000; font-size: 16px;
-      cursor: pointer; transition: 0.3s;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      background: #00eaff;
+      color: #000;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
     }
-    .btn:hover { background: #00bcd4; }
+
+    .btn:hover {
+      background: #00bcd4;
+    }
   </style>
 </head>
 <body>
@@ -49,18 +99,22 @@
   <h2>Sign Up</h2>
   <form id="signupForm">
     <div class="input-group">
-      <input type="text" id="username" required>
+      <input type="text" id="username" required />
       <label>Username</label>
     </div>
+
     <div class="input-group">
-      <input type="password" id="password" required>
+      <input type="password" id="password" required />
       <label>Password</label>
+      <i class="fas fa-eye toggle-password" id="togglePassword"></i>
     </div>
+
     <button type="submit" class="btn">Sign Up</button>
   </form>
 </div>
 
 <script>
+  // تسجيل المستخدم
   const signupForm = document.getElementById('signupForm');
 
   signupForm.addEventListener('submit', function(e) {
@@ -69,12 +123,25 @@
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    // حفظ البيانات في localStorage
     localStorage.setItem('savedUsername', username);
     localStorage.setItem('savedPassword', password);
 
-    // تحويل المستخدم للصفحة Login
     window.location.href = "index.html";
+  });
+
+  // إظهار/إخفاء كلمة المرور
+  document.addEventListener("DOMContentLoaded", function () {
+    const passwordInput = document.getElementById("password");
+    const toggleIcon = document.getElementById("togglePassword");
+
+    if (toggleIcon && passwordInput) {
+      toggleIcon.addEventListener("click", function () {
+        const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+        passwordInput.setAttribute("type", type);
+        this.classList.toggle("fa-eye");
+        this.classList.toggle("fa-eye-slash");
+      });
+    }
   });
 </script>
 
