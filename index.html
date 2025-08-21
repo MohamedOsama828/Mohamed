@@ -1,111 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Mohamed_Osama</title>
-  </head>
-  <body>
-    <div class="container"></div>
-    <header>
-      <img src="assets/svg/logo.svg" alt="Mohamed_Osama logo" />
-      <nav class="navigation">
-        <ul>
-          <li><a href="#aboutMe">About Me</a></li>
-          <li><a href="#MyWorks">My Works</a></li>
-          <li><a href="#contactMe">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-    <hr />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="login.css" />
+  <title>MohamedOsama</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      font-family: Arial, sans-serif;
+    }
+    .glass-container {
+      position: relative;
+      width: 380px;
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+      overflow: hidden;
+      color: #fff;
+    }
+    .glass-container h2 { text-align: center; margin-bottom: 20px; }
+    .input-group { position: relative; margin: 20px 0; width: 100%; }
+    .input-group input {
+      width: 100%; padding: 10px; border: none; outline: none;
+      border-radius: 10px; background: rgba(255, 255, 255, 0.2);
+      color: #fff; font-size: 16px;
+    }
+    .input-group label { position: absolute; left: 10px; top: -20px; font-size: 14px; color: #ddd; }
+    .remember-forgot { display: flex; justify-content: space-between; align-items: center; font-size: 14px; margin: 10px 0 20px; }
+    .remember-forgot label { display: flex; align-items: center; }
+    .remember-forgot input { margin-right: 5px; }
+    .remember-forgot a { color: #00eaff; text-decoration: none; cursor: pointer; }
+    .remember-forgot a:hover { text-decoration: underline; }
+    .btn {
+      width: 100%; padding: 10px; border: none; border-radius: 10px;
+      background: #00eaff; color: #000; font-size: 16px;
+      cursor: pointer; transition: 0.3s;
+    }
+    .btn:hover { background: #00bcd4; }
+    .register { text-align: center; margin-top: 20px; font-size: 14px; }
+    .register a { color: #00eaff; text-decoration: none; }
+    .register a:hover { text-decoration: underline; }
+    #resetBox { display: none; margin-top: 20px; }
+  </style>
+</head>
+<body>
 
-    <section class="hero">
-      <img class="arrow" src="assets/svg/arrow.svg" alt="arrow" />
-      <div class="heroSub">
-        <h1 class="name">I’m Mohamed</h1>
-        <h1 class="title">Software Engineer</h1>
-        <div class="heroBtns">
-          <a class="hireMe" href="#contactMe">Hire me</a>
-          <a class="cv" href="assets/Mohamed_Osama_CV.pdf" download
-            >Download CV
-            <img src="assets/svg/download.svg" alt="download button"
-          /></a>
-        </div>
+  <div class="glass-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <div class="input-group">
+        <input type="text" id="username" required>
+        <label>Username</label>
       </div>
-      <img src="assets/svg/Hero.svg" alt="hero image" class="heroImg" />
-    </section>
+      <div class="input-group">
+        <input type="password" id="password" required>
+        <label>Password</label>
+      </div>
+      <div class="remember-forgot">
+        
+        <a onclick="showReset()">Forgot Password?</a>
+      </div>
+      <button type="submit" class="btn">Login</button>
 
-    <section class="aboutMe" id="aboutMe">
-      <img
-        src="assets/svg/AboutMe.svg"
-        alt="aboutMe image"
-        class="aboutMeImg"
-      />
-      <div class="textContainer">
-        <div class="textTitle">
-          <h1 class="aboutName">About</h1>
-          <h1 class="aboutTitle">me</h1>
-          <img src="assets/svg/lightbulb.svg" alt="ligh" class="light" />
-        </div>
-        <p class="aboutMePar">
-          Hey, I'm MohamedOsama, a Software Engineer who loves turning complex ideas into simple, sleek solutions. Currently diving into mobile app development to level up my skills. I enjoy building cool stuff, experimenting with new tech, and making things look and feel great.
-        </p>
+      <div class="register">
+        Don't have an account? <a href="register.html">Register</a>
       </div>
-    </section>
+    </form>
 
-    <section class="works" id="MyWorks">
-      <div class="worksContainer">
-        <div class="projectTitle">
-          <h1 class="aboutName">My recent</h1>
-          <h1 class="aboutTitle">works</h1>
-        </div>
-        <ul>
-          <li>
-            <a href="https://mhamedosama.blogspot.com/" target="_blank"
-              ><img src="assets/imgs/bloger.png" alt="Blogger Page"
-            /></a>
-          </li>
-          <li>
-            <a href="" 
-            ><img src="assets/imgs/app.png" alt="App" /></a>
-          </li>
-        </ul>
+    <!-- Reset Password Box -->
+    <div id="resetBox">
+      <h3>Reset Password</h3>
+      <div class="input-group">
+        <input type="text" id="resetUser" required>
+        <label>Username</label>
       </div>
-    </section>
+      <div class="input-group">
+        <input type="email" id="resetEmail" required>
+        <label>Email</label>
+      </div>
+      <button class="btn" onclick="resetPassword()">Send Password</button>
+    </div>
+  </div>
 
-    <section class="contactContainer" id="contactMe">
-      <div class="contactTitle">
-        <h1 class="aboutName">Contact</h1>
-        <h1 class="aboutTitle">me</h1>
-      </div>
-      <div class="contact">
-        <div class="emailAndPhone">
-          <img src="assets/svg/Email.svg" alt="email logo" />
-          <a href="mailto:mhamedlaithy@gmail.com"
-            ><h3>mhamedlaithy@gmail.com</h3></a
-          >
-        </div>
-        <div class="emailAndPhone">
-          <img src="assets/svg/phone.svg" alt="phone logo" />
-          <h3>+20 1211613674</h3>
-        </div>
-      </div>
-      <div class="socialMedia">
-        <a
-          
-        href="https://github.com/MohamedOsama828" target="_blank"
-          ><img src="assets/svg/github.svg" alt=" my github account"
-        /></href=>
-        <a href="https://youtube.com/@mhamedosamaali?si=Q9Tu6wNIFWBU3hq3" target="_blank"
-          ><img src="assets/svg/youtube.svg" alt="my youtube channel"
-        /></a>
-      </div>
-    </section>
-    <hr />
-    <footer>
-      <p>Built by 
-     Mohamed_Osama.</p>
-    </footer>
-  </body>
+  <!-- ✅ EmailJS v4 -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="chek.js"></script>
+</body>
 </html>

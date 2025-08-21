@@ -1,0 +1,117 @@
+/* الخلفية */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+  font-family: Arial, sans-serif;
+}
+
+/* الكونتينر الزجاجي */
+.glass-container {
+  position: relative;
+  width: 380px;
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  overflow: hidden;
+  color: #fff;
+}
+
+.glass-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* إدخال البيانات */
+.input-group {
+  position: relative;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 16px;
+}
+
+.input-group label {
+  position: absolute;
+  left: 10px;
+  top: -20px;
+  font-size: 14px;
+  color: #ddd;
+}
+
+/* تذكرني */
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin: 10px 0 20px;
+}
+
+.remember-forgot label {
+  display: flex;
+  align-items: center;
+}
+
+.remember-forgot input {
+  margin-right: 5px;
+}
+
+.remember-forgot a {
+  color: #00eaff;
+  text-decoration: none;
+}
+
+.remember-forgot a:hover {
+  text-decoration: underline;
+}
+
+/* زر الدخول */
+.btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #00eaff;
+  color: #000;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #00bcd5;
+}
+
+/* رابط التسجيل */
+.register {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.register a {
+  color: #00eaff;
+  text-decoration: none;
+}
+
+.register a:hover {
+  text-decoration: underline;
+}
